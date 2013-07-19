@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SCCM Mock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Le styles -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="ico/favicon.png">
+  <!--
+  Source: http://twitter.github.io/bootstrap/examples/justified-nav.html#
+  -->
+
+  <style>
+    menu {
+      /* dropdown in accordion */
+    }
+
+    accordion-heading {
+      position: relative;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#" name="top">SCCM</a>
+
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#"><i class="icon-home"></i> Product</a></li>
+            <li class="divider-vertical"></li>
+            <li><a href="#"><i class="icon-file"></i> Job</a></li>
+            <li class="divider-vertical"></li>
+            <li><a href="#"><i class="icon-envelope"></i> Flow</a></li>
+            <li class="divider-vertical"></li>
+            <li><a href="#"><i class="icon-film"></i> Console</a></li>
+            <li class="divider-vertical"></li>
+            <li><a href="#"><i class="icon-signal"></i> Logging</a></li>
+            <li class="divider-vertical"></li>
+          </ul>
+
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-circle-arrow-down"></i> About <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-wrench"></i> Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="icon-share"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container-fluid -->
+    </div>
+    <!--/.navbar-inner -->
+  </div>
+  <!--/.navbar -->
+
+  <div class="row-fluid">
+    <div class="span4">
+      <h2>Product (tree)</h2>
+
+      <!-- Tree -->
+      <div id="MyTree" class="tree">
+        <div class="tree-folder" style="display:none;">
+          <div class="tree-folder-header">
+            <i class="icon-folder-close"></i>
+
+            <div class="tree-folder-name"></div>
+          </div>
+          <div class="tree-folder-content"></div>
+          <div class="tree-loader" style="display:none"></div>
+        </div>
+        <div class="tree-item" style="display:none;">
+          <i class="tree-dot"></i>
+
+          <div class="tree-item-name"></div>
+        </div>
+      </div>
+      <!-- / tree -->
+
+    </div>
+
+    <div class="span8">
+      <h2>Main</h2>
+
+      <p></p>
+    </div>
+    <div class="span12">
+      <h2>Log</h2>
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">
+    <p>&copy; ARM PIPD Design Automation 2013</p>
+  </div>
+
+</div>
+<!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/knockout-2.2.1.js"></script>
+<script src="fuelux/all.js"/>
+<script src="js/app/model/model.js"></script>
+<script src="js/app/app.js"></script>
+<!--
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
+-->
+</body>
+</html>

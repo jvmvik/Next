@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/2e29ee50/hibernate.cfg.xml/SCCM-mock/hibernate/Hibernate/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="8.0" y="-86.0">Product#file:///home/vicben01/nimbus/Next/SCCM-mock/src/com/arm/nimbus/sccm/model/Product.java</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="520.5" y="218.0" />
+  <SelectedNodes>
+    <node>Product#file:///home/vicben01/nimbus/Next/SCCM-mock/src/com/arm/nimbus/sccm/model/Product.java</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Embeddables</Category>
+    <Category>Superclasses</Category>
+  </Categories>
+</Diagram>
+
