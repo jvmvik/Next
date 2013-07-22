@@ -1,50 +1,57 @@
 package com.arm.nimbus.sccm.servlet;
 
 import com.arm.nimbus.sccm.config.BootStrap;
-import com.arm.nimbus.sccm.config.HibernateSessionFactory;
 import com.arm.nimbus.sccm.model.Product;
-import com.google.gson.Gson;
+import com.arm.nimbus.sccm.service.Service;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
 /**
+ * Application main http servlet
+ *
  * @author vicben01
  */
-public class Application extends HttpServlet
+public class Application extends JsonHttpServlet
 {
-  SessionFactory sessionFactory;
-  Gson gson = new Gson();
+
+  @Inject
+  Service service;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
     if (req.getRequestURI().endsWith("list"))
     {
-      resp.setContentType("text/plain");
-      resp.setStatus(200);
       Session session1 = sessionFactory.openSession();
       session1.beginTransaction();
 
+      resp.setContentType(TEXT_PLAIN);
+      resp.setStatus(HttpServletResponse.SC_OK);
+
       List<Product> results = session1.createCriteria(Product.class).setMaxResults(10).list();
       for (Product product : results)
-      {
-        resp.getOutputStream().println("Product: " + gson.toJson(product));
-      }
+        render(resp, product);
+
       session1.getTransaction().commit();
       session1.close();
     }
+    else if (req.getRequestURI().endsWith("date"))
+    {
+      resp.setContentType(TEXT_PLAIN);
+      resp.setStatus(HttpServletResponse.SC_OK);
+      render(resp, "Current date is : " + service.currentDate());
+
+    }
     else
     {
-      resp.setContentType("text/plain");
-      resp.setStatus(200);
+      resp.setContentType(TEXT_PLAIN);
+      resp.setStatus(HttpServletResponse.SC_OK);
       resp.getOutputStream().println("HEllo world!");
     }
   }
@@ -64,12 +71,9 @@ public class Application extends HttpServlet
   @Override
   public void init() throws ServletException
   {
-    System.out.println("Servlet initialization");
-    sessionFactory = HibernateSessionFactory.start();
-
-    // BootStrap data in db
-    BootStrap.start(null);
-
     super.init();
+    // BootStrap data in db
+    BootStrap.start(sessionFactory);
+
   }
 }

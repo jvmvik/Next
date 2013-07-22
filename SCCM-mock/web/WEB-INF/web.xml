@@ -16,5 +16,21 @@
         <servlet-name>Application</servlet-name>
         <url-pattern>/application/*</url-pattern>
     </servlet-mapping>
+
+    <!-- Web Socket servlet -->
+    <servlet>
+        <servlet-name>WsChatServlet</servlet-name>
+        <servlet-class>com.arm.nimbus.sccm.websocket.SimpleWebSocket</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WsChatServlet</servlet-name>
+        <url-pattern>/wschat/WsChatServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- CDI support -->
+    <listener>
+        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+    </listener>
     
 </web-app>
