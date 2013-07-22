@@ -7,15 +7,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Le styles -->
+  <!-- All styles -->
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/app.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <link href="fuelux/css/fuelux.css"/>
+  <link href="fuelux/css/fuelux-responsive.css"/>
+  <!-- App specific -->
+  <link href="css/app.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
-  <![endif]-->
+  <![endif]--
 
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
@@ -89,34 +94,123 @@
 
   <div class="row-fluid">
     <div class="span4">
-      <h2>Product (tree)</h2>
+      <h2>Tree view build with Fuelux</h2>
+
+        <div id="MyPillbox" class="pillbox">
+            <ul>
+                <li data-value="foo">Item One</li>
+                <li class="status-success">Item Two</li>
+                <li class="status-warning">Item Three</li>
+                <li class="status-important">Item Four</li>
+                <li class="status-info">Item Five</li>
+                <li class="status-success">Item Six</li>
+                <li>Item Seven</li>
+            </ul>
+        </div>
 
       <!-- Tree -->
-      <div id="MyTree" class="tree">
-        <div class="tree-folder" style="display:none;">
-          <div class="tree-folder-header">
-            <i class="icon-folder-close"></i>
+        <div class="well tree-example">
 
-            <div class="tree-folder-name"></div>
-          </div>
-          <div class="tree-folder-content"></div>
-          <div class="tree-loader" style="display:none"></div>
-        </div>
-        <div class="tree-item" style="display:none;">
-          <i class="tree-dot"></i>
+            <div id="MyTree" class="tree">
+                <div class="tree-folder" style="display:none;">
+                    <div class="tree-folder-header">
+                        <i class="icon-folder-close"></i>
 
-          <div class="tree-item-name"></div>
+                        <div class="tree-folder-name"></div>
+                    </div>
+                    <div class="tree-folder-content"></div>
+                    <div class="tree-loader" style="display:none">
+                    </div>
+                </div>
+                <div class="tree-item tree-folder-content" style="display:none;">
+                    <i class="tree-dot"></i>
+
+                    <div class="tree-item-name"></div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <!-- / tree -->
+
+        <!-- / tree -->
 
     </div>
 
-    <div class="span8">
-      <h2>Main</h2>
+    <div class="span2">
+      <h2><<--->></h2>
 
       <p></p>
     </div>
+    <div class="span4">
+        <h2>Custom tree</h2>
+        <div class="well" style="width:300px; padding: 8px 0;">
+            <div style="overflow-y: scroll; overflow-x: hidden; height: 500px;">
+                <ul class="nav nav-list">
+
+                    <li><label class="tree-toggler nav-header">TSMC</label>
+                        <ul class="nav nav-list tree">
+                            <li><label class="tree-toggler nav-header icon-folder-close">CLN40LP</label>
+                                <ul class="nav nav-list tree">
+                                    <li><label class="tree-toggler nav-header">sc12</label>
+                                        <ul class="nav nav-list tree">
+                                            <li><label class="tree-toggler nav-header">base</label>
+                                                <ul class="nav nav-list tree">
+                                                    <li class="btn-group">
+                                                        <a class="btn dropdown-toggle icon-edit" data-toggle="dropdown" href="#">
+                                                            Product 1
+                                                            <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <!-- dropdown menu links -->
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#">Link</a></li>
+                                                </ul>
+                                            <li>
+                                         </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="divider"></li>
+                    <li><label class="tree-toggler nav-header">SAMSUNG</label>
+                        <ul class="nav nav-list tree">
+                            <li><a href="#">Link</a></li>
+                            <li><a href="#">Link</a></li>
+                            <li><label class="tree-toggler nav-header">Header 2.1</label>
+                                <ul class="nav nav-list tree">
+                                    <li><a href="#">Link</a></li>
+                                    <li><a href="#">Link</a></li>
+                                    <li><label class="tree-toggler nav-header">Header 2.1.1</label>
+                                        <ul class="nav nav-list tree">
+                                            <li><a href="#">Link</a></li>
+                                            <li><a href="#">Link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><label class="tree-toggler nav-header">Header 2.2</label>
+                                <ul class="nav nav-list tree">
+                                    <li><a href="#">Link</a></li>
+                                    <li><a href="#">Link</a></li>
+                                    <li><label class="tree-toggler nav-header">Header 2.2.1</label>
+                                        <ul class="nav nav-list tree">
+                                            <li><a href="#">Link</a></li>
+                                            <li><a href="#">Link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
     <div class="span12">
       <h2>Log</h2>
     </div>
@@ -133,12 +227,23 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.js"></script>
+<script src="js/jquery-2.0.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/knockout-2.2.1.js"></script>
-<script src="fuelux/all.js"/>
+
+<!-- Fuelux
+<script src="js/require.js"/>
+
+<script>
+    requirejs.config({ baseUrl: 'fuelux', paths: { 'sample': 'fuelux/sample' } });
+</script>
+
+<!-- Load template -->
+<script type='text/javascript' src="//fuelcdn.com/fuelux/2.3/loader.min.js"></script>
+
 <script src="js/app/model/model.js"></script>
 <script src="js/app/app.js"></script>
+
 <!--
 <script src="js/bootstrap-transition.js"></script>
 <script src="js/bootstrap-alert.js"></script>

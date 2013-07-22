@@ -1,0 +1,65 @@
+/* Custom tree */
+ul.tree {
+    display: none;
+}
+
+/* Fuelux */
+.pillbox {
+    border: 1px solid #bbb;
+    margin-bottom: 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 251px;
+}
+
+#mySelect {
+    margin-bottom: 10px;
+}
+
+.social {
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+
+.social-buttons {
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.social-buttons li {
+    display: inline-block;
+    padding: 5px 8px;
+    line-height: 1;
+    *display: inline;
+    *zoom: 1;
+}
+
+.spinner-example
+{
+    height: 28px;
+}
+
+#MyTree
+{
+    width: 400px;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.tree-example
+{
+    height: 350px;
+}
+
+.step-content
+{
+    border: 1px solid #D4D4D4;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}

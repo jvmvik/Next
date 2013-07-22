@@ -6720,7 +6720,8 @@ textarea.span1,
   background-color: #b9dff1;
 }
 
-.fuelux .wizard {
+.fuelux .wizard
+{
   background-color: #f9f9f9;
   border: 1px solid #d4d4d4;
   -webkit-border-radius: 4px;
@@ -6733,7 +6734,8 @@ textarea.span1,
 }
 
 .fuelux .wizard:before,
-.fuelux .wizard:after {
+.fuelux .wizard:after
+{
   display: table;
   line-height: 0;
   content: "";
@@ -6762,7 +6764,8 @@ textarea.span1,
   background: #ededed;
 }
 
-.fuelux .wizard ul li .chevron {
+.fuelux .wizard ul li .chevron
+{
   position: absolute;
   top: 0;
   right: -14px;

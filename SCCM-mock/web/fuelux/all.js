@@ -1,6 +1,6 @@
 (function () {
 //Wrapped in an outer function to preserve global this
-(function (root) { var amdExports; define('bootstrap/bootstrap-transition',['jquery'], function () { (function () {
+(function (root) { var amdExports; define('bootstrap/bootstrap-transition',['js/jquery'], function () { (function () {
 
 /* ===================================================
  * bootstrap-transition.js v2.3.2

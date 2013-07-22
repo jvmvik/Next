@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Wizard Exampple preview</title>
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
+    <link href="//fuelcdn.com/fuelux/2.3/css/fuelux.css" type="text/css" rel="stylesheet">
+    <link href="//fuelcdn.com/fuelux/2.3/css/fuelux-responsive.css" type="text/css" rel="stylesheet">
+
+    <style type="text/css" id="bsCss">
+            /* override bootstrap styles */
+
+    </style>
+</head>
+<body class="fuelux" >
+<div class="well wizard-example fill">
+    <div id="MyWizard" class="wizard">
+        <ul class="steps">
+            <li data-target="#step1" class="active">
+                <span class="badge badge-info">1</span>Platform<span class="chevron"></span>
+            </li>
+            <li data-target="#step2">
+                <span class="badge">2</span>Operating condition<span class="chevron"></span>
+            </li>
+            <li data-target="#step3"><span class="badge">3</span>Views<span class="chevron"></span></li>
+            <li data-target="#step4"><span class="badge">4</span>Summary<span class="chevron"></span></li>
+        </ul>
+        <div class="actions">
+            <button class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
+            <button class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
+        </div>
+    </div>
+    <div class="step-content">
+        <div class="step-pane active" id="step1">
+
+            <h2>Platform definition</h2>
+
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="foundry">Foundry</label>
+                    <div class="controls">
+                        <input type="text" id="foundry" placeholder="TSMC" required="true">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="technology">Technology</label>
+                    <div class="controls">
+                        <input type="text" id="technology" placeholder="Technology" required="true">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="step-pane" id="step2">
+            <h2>Operation condition</h2>
+
+        </div>
+        <div class="step-pane" id="step3"><h2>Okay</h2>Now you are at the 3rd step of this wizard example.<br></div>
+        <div class="step-pane" id="step4"><h2>Almost Done.</h2>Now you are at the 4th step of this wizard example. Click 'Next' to finish up.</div>
+        <div class="step-pane" id="step5"><h2>Done!</h2>The wizard is complete. Pretty exciting stuff, eh?. <a href="#" id="btnStep2">Go back to step 2.</a></div>
+    </div>
+    <br>
+    <input type="button" class="btn" id="btnWizardPrev" value="Back">
+    <input type="button" class="btn btn-primary" id="btnWizardNext" value="Next">
+</div>
+
+<!-- Dialog window -->
+<div id="wizardAlert" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Error dialog</h3>
+    </div>
+    <div class="modal-body">
+        <p>Show all the errors that must be fixed.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Apply</button>
+    </div>
+</div>
+
+<!-- /well -->
+<hr>
+
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="//fuelcdn.com/fuelux/2.3/loader.min.js"></script>
+<script type='text/javascript' src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+<script type='text/javascript' id="bsJs">
+
+    $(document).ready(function() {
+
+        $('#MyWizard').on('change', function(e, data) {
+            console.log('change');
+            if(data.step===3 && data.direction==='next')
+            {
+                $('#wizardAlert').modal('show');
+                return e.preventDefault();
+            }
+        });
+        $('#MyWizard').on('changed', function(e, data) {
+            console.log('changed');
+        });
+        $('#MyWizard').on('finished', function(e, data) {
+            console.log('finished');
+
+            //TODO Close the wizard
+        });
+
+        $('#btnWizardPrev').on('click', function() {
+            $('#MyWizard').wizard('previous');
+        });
+        $('#btnWizardNext').on('click', function() {
+            $('#MyWizard').wizard('next','foo');
+        });
+        $('#btnWizardStep').on('click', function() {
+            var item = $('#MyWizard').wizard('selectedItem');
+            console.log(item.step);
+        });
+        $('#MyWizard').on('stepclick', function(e, data) {
+            console.log('step' + data.step + ' clicked');
+            if(data.step === 2)
+            {
+                return e.preventDefault()
+                // return e.preventDefault();
+            }
+        });
+
+// optionally navigate back to 2nd step
+        $('#btnStep2').on('click', function(e, data) {
+            $('[data-target=#step2]').trigger("click");
+        });
+
+
+
+    });
+
+</script>
+
+</body>
+</html>
